@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Video28</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=640,user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+
+	<div class="page page1">
+		<video webkit-playsinline playsinline x5-video-player-type="h5" preload='auto' loop autoplay x-webkit-airplay="true" x5-video-player-fullscreen="true" id="video" controls>
+			<source src="video/1.mp4">
+		</video>
+
+	</div>
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script type="text/javascript">
+
+
+		var video = $('#video');
+		var ua = navigator.userAgent;
+
+		video[0].play(); 
+		document.addEventListener("WeixinJSBridgeReady", function () { 
+
+			if (ua.indexOf("iPhone") > 0) {
+
+				video[0].play();
+		    }else if (ua.indexOf("Android") > 0) {
+		    	if (video[0].currentTime == 0){
+		            video[0].pause();
+		        }
+		    }
+	        video[0].play(); 
+	    }, false); 
+
+	</script>
+</body>
+</html>
